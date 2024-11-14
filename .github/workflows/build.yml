@@ -30,7 +30,7 @@ jobs:
     env:
       libraryName: mariadb-connector-c
       cmakeInstallationPath: mariadb-connector-c-installation
-      tagName: v3.3.7
+      tagName: v3.4.3
     steps:
     
       - uses: actions/checkout@v4
