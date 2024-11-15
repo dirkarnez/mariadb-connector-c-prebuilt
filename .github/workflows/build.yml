@@ -66,14 +66,12 @@ jobs:
       #     del /f FindOpenSSL.cmake &&^
       #     dir
           
-      # - shell: cmd
-      #   run: |
-      #     cd ${{ env.libraryName }} &&^
-      #     dir &&^
-      #     "${{ github.workspace }}\PortableGit-2.38.1-64-bit\usr\bin\sed.exe" -i "s/cmake_minimum_required(VERSION\s\+2.6.0)/cmake_minimum_required(VERSION 3.7)/g" CMakeLists.txt &&^
-      #     "${{ github.workspace }}\PortableGit-2.38.1-64-bit\usr\bin\sed.exe" -i "s/find_package(OpenSSL)/find_package(OpenSSL CONFIG REQUIRED)/g" CMakeLists.txt &&^
-      #     "${{ github.workspace }}\PortableGit-2.38.1-64-bit\usr\bin\sed.exe" -i "s/add_subdirectory(doc)//g" CMakeLists.txt &&^
-      #     type CMakeLists.txt
+      - shell: cmd
+        run: |
+          cd ${{ env.libraryName }}\libmariadb &&^
+          dir &&^
+          "${{ github.workspace }}\PortableGit-2.38.1-64-bit\usr\bin\sed.exe" -i "s/ADD_LIBRARY(libmariadb\s\+SHARED\s\+\${libmariadb_RC}\s\+\${MARIADB_OBJECTS}\s\+mariadbclient.def)/ADD_LIBRARY(libmariadb STATIC \${libmariadb_RC} \${MARIADB_OBJECTS})/g" CMakeLists.txt &&^
+          type CMakeLists.txt
           
       # - shell: cmd
       #   run: |

@@ -13,9 +13,10 @@ SET PATH=^
 %PREFIX%\winlibs-x86_64-posix-seh-gcc-11.2.0-mingw-w64-9.0.0-r1\mingw64\bin;^
 %PREFIX%\cmake-3.29.3-windows-x86_64\bin;
 
+@REM git clone -b v3.4.3 https://github.com/mariadb-corporation/mariadb-connector-c.git &&^
+
 set CD_LINUX=%CD:\=/%
 gcc --version &&^
-git clone -b v3.4.3 https://github.com/mariadb-corporation/mariadb-connector-c.git &&^
 cd mariadb-connector-c &&^
 cmake.exe -LH -G"MinGW Makefiles" ^
 -DCMAKE_BUILD_TYPE=Release ^
